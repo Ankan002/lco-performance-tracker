@@ -1,0 +1,1 @@
+export {default as MainTitleHeader} from "./main-title-header";

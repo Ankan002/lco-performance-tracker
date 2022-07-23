@@ -1,0 +1,1 @@
+export { default as AddResultModal } from "./add-result";

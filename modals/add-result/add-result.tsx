@@ -5,7 +5,8 @@ import { Theme } from "typings/theme";
 import { themeAtom } from "atoms/theme-atom";
 import Toast from "react-native-toast-message";
 import { toastConfig } from "config";
-import { ModalHeader, ModalActionButton, ModalTextInput, ModalNumericalInput } from "components/modal-components";
+import { ModalHeader, ModalActionButton, ModalTextInput, ModalNumericalInput, ModalDropdownInput } from "components/modal-components";
+import { dropdownItems } from "constants/dropdown-items";
 import { lightStyles, darkStyles } from "./styles";
 
 interface Props{
@@ -26,12 +27,15 @@ const AddResult = (props: Props) => {
   const [myRank, setMyRank] = useState<string>("");
   const [totalParticipants, setTotalParticipants] = useState<string>("");
 
+  const [quizCategory, setQuizCategory] = useState<string>("");
+  const [quizCategoryDropdownOpen, setQuizCategoryDropdownOpen] = useState<boolean>(false);
+
   const onRequestClose = () => {
     if(isAddResultModalActive) setAddResultModal(false);
   }
 
   const onAddResultButtonPressed = () => {
-    console.log("Some Action will be performed to snatch your property!!");
+    console.log("Hey I am pressed!!");
   };
 
   return (
@@ -45,6 +49,17 @@ const AddResult = (props: Props) => {
 
             <View style={currentTheme === "dark" ? darkStyles.AddResultContainer : lightStyles.AddResultContainer}>
               <ModalHeader canCloseModal={true} disablingButtonReason="" isModalOpen={isAddResultModalActive} setIModalVisibility={setAddResultModal} title="Add Result" />
+
+              <ModalDropdownInput
+                open={quizCategoryDropdownOpen}
+                setOpen={setQuizCategoryDropdownOpen}
+                value={quizCategory}
+                setValue={setQuizCategory}
+                placeholder="Quiz Category"
+                items={dropdownItems}
+                title="Quiz Category" 
+              />
+
               <ScrollView>
                 <ModalTextInput
                   title="Quiz Name"

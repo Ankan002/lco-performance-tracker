@@ -20,6 +20,7 @@ const styles = (theme: Theme) => {
             borderWidth: 2,
             borderColor: theme === "dark" ? colors.primaryLight : colors.primaryDark,
             backgroundColor: theme === "dark" ? colors.secondaryDark : colors.secondaryLight,
+            color: theme === "dark" ? colors.primaryLight : colors.primaryDark,
             marginTop: 5,
             fontFamily: "Manrope_400Regular",
             fontSize: 18,

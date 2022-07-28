@@ -30,6 +30,8 @@ const AddResult = (props: Props) => {
   const [quizCategory, setQuizCategory] = useState<string>("");
   const [quizCategoryDropdownOpen, setQuizCategoryDropdownOpen] = useState<boolean>(false);
 
+  const [quizDate, setQuizDate] = useState<string>("");
+
   const onRequestClose = () => {
     if(isAddResultModalActive) setAddResultModal(false);
   }

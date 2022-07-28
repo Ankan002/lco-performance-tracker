@@ -7,5 +7,7 @@ export const colors = {
   lightGrey: "#B5BAC7",
   white: "#FFFFFF",
   primaryYellow: "#F6BA3D",
-  semiTransparent: "rgba(0, 0, 0, 0.6)"
+  semiTransparent: "rgba(0, 0, 0, 0.6)",
+  primaryGreen: "#08CD92",
+  primaryRed: "#D61C4E"
 }

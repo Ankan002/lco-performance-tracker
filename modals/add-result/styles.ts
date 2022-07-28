@@ -20,7 +20,24 @@ const styles = (theme: Theme) => {
             borderRightColor: theme === "dark" ? colors.primaryLight : colors.primaryDark,
             borderLeftColor: theme === "dark" ? colors.primaryLight : colors.primaryDark,
             borderTopLeftRadius: 30,
-            borderTopRightRadius: 30
+            borderTopRightRadius: 30,
+            paddingVertical: 10
+        },
+        ActionButtonContainer: {
+            flexGrow: 1,
+            minHeight: 70,
+            width: "100%",
+            paddingVertical: 5,
+            paddingHorizontal: 15,
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "center",
+        },
+        NumericInputContainer: {
+            marginTop: 10,
+            flexDirection: "row",
+            alignItems: "center",
+            width: "100%"
         }
     });
 };

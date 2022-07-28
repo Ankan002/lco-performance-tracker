@@ -15,7 +15,8 @@ module.exports = function (api) {
             typings: "./typings",
             themes: "./themes",
             constants: "./constants",
-            modals: "./modals"
+            modals: "./modals",
+            config: "./config"
           },
         },
       ],

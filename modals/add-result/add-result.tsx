@@ -5,8 +5,9 @@ import { Theme } from "typings/theme";
 import { themeAtom } from "atoms/theme-atom";
 import Toast from "react-native-toast-message";
 import { toastConfig } from "config";
-import { ModalHeader, ModalActionButton, ModalTextInput, ModalNumericalInput, ModalDropdownInput } from "components/modal-components";
+import { ModalHeader, ModalActionButton, ModalTextInput, ModalNumericalInput, ModalDropdownInput, ModalDatePicker } from "components/modal-components";
 import { dropdownItems } from "constants/dropdown-items";
+import moment from "moment";
 import { lightStyles, darkStyles } from "./styles";
 
 interface Props{
@@ -30,14 +31,24 @@ const AddResult = (props: Props) => {
   const [quizCategory, setQuizCategory] = useState<string>("");
   const [quizCategoryDropdownOpen, setQuizCategoryDropdownOpen] = useState<boolean>(false);
 
-  const [quizDate, setQuizDate] = useState<string>("");
+  const [quizDate, setQuizDate] = useState<string>(moment().format("YYYY-MM-DD"));
+
+  const [useCustomDate, setUseCustomDate] = useState<boolean>(false);
 
   const onRequestClose = () => {
     if(isAddResultModalActive) setAddResultModal(false);
   }
 
   const onAddResultButtonPressed = () => {
-    console.log("Hey I am pressed!!");
+    console.log({
+      quizCategory,
+      quizName,
+      myRank: parseInt(myRank),
+      totalParticipants: parseInt(totalParticipants),
+      obtainedMarks: parseInt(obtainedMarks),
+      maximumMarks: parseInt(maximumMarks),
+      quizDate
+    });
   };
 
   return (
@@ -99,6 +110,15 @@ const AddResult = (props: Props) => {
                     placeholder="100" 
                   />
                 </View>
+
+                <ModalDatePicker
+                  useCustomDate={useCustomDate}
+                  setUseCustomDate={setUseCustomDate}
+                  checkBoxText="Custom Date"
+                  title="Quiz Date"
+                  quizDate={quizDate}
+                  setQuizDate={setQuizDate} 
+                />
               </ScrollView>
               <View style={currentTheme === "dark" ? darkStyles.ActionButtonContainer : lightStyles.ActionButtonContainer}>
                 <ModalActionButton title="Add Result" onPress={onAddResultButtonPressed} />

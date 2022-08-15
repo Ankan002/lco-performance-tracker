@@ -8,6 +8,7 @@ import { lightStyles, darkStyles } from "./styles";
 import { Manrope_500Medium, useFonts } from "@expo-google-fonts/manrope";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "constants/colors";
+import { QuizCategory } from "typings/quiz-category";
 
 interface DropdownSchema {
   label: string;
@@ -20,7 +21,7 @@ interface Props {
   items: Array<DropdownSchema>;
   setItems?: Dispatch<SetStateAction<Array<any>>>;
   value: string;
-  setValue: Dispatch<SetStateAction<string>>;
+  setValue: Dispatch<SetStateAction<QuizCategory>>;
   placeholder: string;
   title: string;
 }

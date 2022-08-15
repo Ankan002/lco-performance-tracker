@@ -1,0 +1,1 @@
+export type QuizCategory = "daily-quiz" | "weekly-quiz" | "monthly-quiz" | "others" | "";

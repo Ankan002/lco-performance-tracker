@@ -35,7 +35,7 @@
         "config/*"
       ]
     },
-    "typeRoots": ["node_modules/@types"]
-    // "noImplicitAny": false
+    "typeRoots": ["node_modules/@types"],
+    "noImplicitAny": false
   }
 }

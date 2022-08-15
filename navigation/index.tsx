@@ -9,15 +9,17 @@ import { RootStackParamList, RootTabParamList } from '../types';
 import LinkingConfiguration from 'navigation/LinkingConfiguration';
 import { getSavedTheme } from "helpers";
 import { useRecoilState } from "recoil";
-import { themeAtom } from "atoms";
+import { quizResultsAtom, themeAtom } from "atoms";
 import { Theme } from 'typings/theme';
 import { LightNavigatorTheme, DarkNavigatorTheme } from 'themes';
 import { colors } from 'constants/colors';
+import { QuizResult } from 'typings/quiz-result';
 
 export default function Navigation() {
 
   const isAppMounted = useRef<boolean>(false);
   const [currentTheme, setCurrentTheme] = useRecoilState<Theme>(themeAtom);
+  const [quizResults, setQuizResults] = useRecoilState<Array<QuizResult>>(quizResultsAtom);
 
   const onAppLoad = async() => {
     const savedTheme = await getSavedTheme();
@@ -32,6 +34,10 @@ export default function Navigation() {
 
     onAppLoad();
   }, []);
+
+  useEffect(() => {
+    console.log(quizResults);
+  }, [quizResults]);
 
   return (
     <NavigationContainer
